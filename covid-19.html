@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>코로나바이러스감염증-19 (COVID-19)</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Nanum+Gothic:wght@400;700;800&family=Nanum+Pen+Script&family=Aldrich&family=Gugi&family=Sunflower:wght@300;500;700&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      color: grey;
+      font-family: 'Sunflower';
+      text-align: center;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      -webkit-animation: Gradient2c 7s ease infinite;
+      -moz-animation: Gradient2c 7s ease infinite;
+      animation: Gradient2c 7s ease infinite;
+    }
+
+    h1 {
+      color: black;
+    }
+
+    h2 {
+      color: white;
+    }
+
+    .cards {
+      margin-bottom: 10px;
+      margin-left: 5%;
+      margin-right: 5%;
+      width: 90%;
+    }
+
+    #how {
+      margin-top: 500px;
+    }
+
+    .card {
+      border-radius: 10px;
+      background-color: lightyellow;
+      padding: 5px;
+    }
+
+    .full {
+      width: 100%;
+    }
+
+    .half {
+      width: 50%;
+    }
+
+    .card h2 {
+      color: black;
+    }
+
+    .flip-card {
+      border-radius: 10px;
+      background-color: lightyellow;
+    }
+
+    .flip-card-inner {
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    .flip-card-back {
+      transform: rotateY(180deg);
+    }
+
+    .spinner {
+      margin: auto;
+      width: 40px;
+      height: 40px;
+      position: relative;
+      text-align: center;
+      -webkit-animation: sk-rotate 2.0s infinite linear;
+      animation: sk-rotate 2.0s infinite linear;
+    }
+
+    .dot1,
+    .dot2 {
+      width: 60%;
+      height: 60%;
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      background-color: white;
+      border-radius: 100%;
+
+      -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+      animation: sk-bounce 2.0s infinite ease-in-out;
+    }
+
+    .dot2 {
+      top: auto;
+      bottom: 0;
+      -webkit-animation-delay: -1.0s;
+      animation-delay: -1.0s;
+    }
+
+    @-webkit-keyframes sk-rotate {
+      100% {
+        -webkit-transform: rotate(360deg)
+      }
+    }
+
+    @keyframes sk-rotate {
+      100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg)
+      }
+    }
+
+    @-webkit-keyframes sk-bounce {
+
+      0%,
+      100% {
+        -webkit-transform: scale(0.0)
+      }
+
+      50% {
+        -webkit-transform: scale(1.0)
+      }
+    }
+
+    @keyframes sk-bounce {
+
+      0%,
+      100% {
+        transform: scale(0.0);
+        -webkit-transform: scale(0.0);
+      }
+
+      50% {
+        transform: scale(1.0);
+        -webkit-transform: scale(1.0);
+      }
+    }
+
+    @keyframes Gradient2c {
+      0% {
+        background-position: 0% 50%
+      }
+
+      50% {
+        background-position: 100% 50%
+      }
+
+      100% {
+        background-position: 0% 50%
+      }
+    }
+
+    @-webkit-keyframes Gradient2c {
+      0% {
+        background-position: 0% 50%
+      }
+
+      50% {
+        background-position: 100% 50%
+      }
+
+      100% {
+        background-position: 0% 50%
+      }
+    }
+
+    @-moz-keyframes Gradient2c {
+      0% {
+        background-position: 0% 50%
+      }
+
+      50% {
+        background-position: 100% 50%
+      }
+
+      100% {
+        background-position: 0% 50%
+      }
+    }
+  </style>
+  <script>
+    function toggle_load() {
+      let load = document.getElementById("load");
+      let content = document.getElementById("content");
+      let body = document.getElementById("body");
+
+      if (load.style.display === "none") {
+        load.style.display = "block";
+        content.style.display = "none";
+        body.style.backgroundColor = 'black';
+      } else {
+        load.style.display = "none";
+        content.style.display = "block";
+        body.style.background = 'linear-gradient(270deg, #87ceeb, #d2ffbd)';
+        body.style.backgroundSize = '400%';
+      }
+    }
+
+    function start_with_load() {
+      toggle_load();
+      setTimeout(function () { toggle_load() }, 3100);
+    }
+  </script>
+</head>
+
+<body onload="start_with_load(); document.getElementById('gobtn').style.display = 'none';" id="body">
+  <div id="load" style="display: none">
+    <video src="./video/COVID-19.mp4" autoplay loop style="width: 60%"></video>
+    <div class="spinner">
+      <div class="dot1"></div>
+      <div class="dot2"></div>
+    </div>
+    <h2 style="font-family: Gugi">LOADING...</h2>
+  </div>
+  <div id="content" style="display: none">
+    <h2 style="font-family: 'Aldrich', 'Gugi">COVID-19<br>코로나바이러스감염증-19</h2>
+    <div class="cards">
+      <div class="card full">
+        <h2>COVID-19란?</h2>
+        <p style="font-size: 17px">2019년 12월 중국 우한에서 처음 발생한 이후 중국 전역과 전 세계로 확산된, 새로운 유형의 코로나바이러스(SARS-CoV-2)에 의한 호흡기
+          감염질환이다.<br>코로나바이러스감염증-19는 감염자의 침방울이 호흡기나 눈·코·입의 점막으로 침투될 때 전염된다. 발열 및 기침이나 호흡곤란 등 호흡기 증상, 폐렴이 주증상으로 나타난다.
+          하지만, 무증상 감염 사례도 많이 있다.</p>
+      </div>
+    </div>
+    <a href="#how"><button style="cursor: help; font-size: 17px" id="hbtn">어떻게 하면<br><span
+          style="font-size: 25px"><i>예방</i></span><br>할 수
+        있을까요?</button></a>
+    <div class="cards" id="how" style="padding-top: 10px">
+      <h2 style="font-size:35px; color:grey">어떻게 하면 예방할 수 있을까요?</h2>
+      <div class="full flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="img/mask.png" height="100px">
+            <h2 style="color:black">마스크를 착용하세요.</h2>
+          </div>
+          <div class="flip-card-back">
+            <img src="img/mask.png" height="100px">
+            <p>코로나-19는 비말을 통해 전파가 된다. 마스크를 착용하면 이를 예방할 수 있다.</p>
+          </div>
+        </div>
+      </div>
+      <div style="height: 150px"></div>
+      <div class="half flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="img/distancing.png" height="100px">
+            <h2 style="color:black">2m이상(최소1m) 거리를 두세요.</h2>
+          </div>
+          <div class="flip-card-back">
+            <img src="img/distancing.png" height="100px">
+            <p>2m이상(최소1m) 거리를 두세요.</p>
+          </div>
+        </div>
+      </div>
+      <div style="height: 100px"></div>
+      <div class="half flip-card" style="margin-left: 50%">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="img/hand-sani.png" height="100px">
+            <img src="img/hand.png" height="100px">
+            <h2 style="color:black">손소독제를 이용하거나 비누를 이용해 손을 씻으세요.</h2>
+          </div>
+          <div class="flip-card-back">
+            <img src="img/hand-sani.png" height="100px">
+            <img src="img/hand.png" height="100px">
+            <p>손소독제를 사용해 손에 묻어 있을 수 있는 바이러스를 딲습니다.<br>또는, 30초 이상 비누를 이용한 손씻기를 하세요.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p>made by 백준우</p>
+</body>
+
+</html>
